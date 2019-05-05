@@ -23,8 +23,10 @@
     .main-header
       .current-group
         %h2.current-group__name sample
-        %ul.member-list Member： seo neko
-        %li.member-list__member
+        %ul.member-list
+          Member：
+          %li.member-list__member seo
+          %li.member-list__member neko
       = link_to do
         .main-header__edit-btn Edit
 
@@ -44,10 +46,10 @@
     .form
       .new-message
         .input-box
-          %input.input-box__text{:placeholder => "type a message"}
-            %label.image-label{:for => "message_image"}
+          %input.input-box__text{ placeholder: "type a message"}
+            %label.image-label{ for: "message_image"}
               %i.fa.fa-image
-              %input.image-label__input{:name => "message[image]", :type => "file", :id =>"message_image"}/
-        %input.new-message__submit-btn{:type => "submit", :value => "Send"}/
-        
+              %input.image-label__input{ name: "message[image]", type: "file", id: "message_image"}/
+        %input.new-message__submit-btn{ type: "submit", value: "Send"}/
+
 
