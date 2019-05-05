@@ -1,5 +1,9 @@
-@import "./reset";
-@import"./variadle"
-/*
- *= require font-awesome
- */
+@import "reset";
+@import 'font-awesome';
+@import "variable";
+@import "header";
+@import "chat-side";
+@import "groups";
+@import "chat-main";
+@import "messages";
+@import "form";

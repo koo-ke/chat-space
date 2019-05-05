@@ -1,0 +1,35 @@
+.chat-main {
+  float: left;
+  height: 100vh;
+  width: calc(100vw - 300px);
+  position: relative;
+  .main-header {
+    height: 100px;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px #eeeeee;
+    &__edit-btn {
+      height: 40px;
+      line-height: 40px;
+      padding: 0 20px;
+      margin-top: 30px;
+      border: solid 1px $Flash_BtnColor;
+      color: $Flash_BtnColor;
+    }
+    .current-group {
+      font-size: 20px;
+      color: #333333;
+      padding-top: 35px;
+      &__member-list {
+        display: flex;
+        padding-top: 15px;
+        font-size: 12px;
+        color:$SubTextColor;
+        &--member {
+          margin-left: 0.3rem;
+        }
+      }
+    }
+  }
+}
