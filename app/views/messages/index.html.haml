@@ -1,0 +1,53 @@
+%header.header
+  .header__text グループを作成しました
+
+%wrapper
+
+  .chat-side
+    .side-header
+      %p.side-header__user-name seo
+      %ul.user-menu
+        %li.user-menu__edit-user
+          = link_to do
+            %i.fa.fa-edit 
+        %li.user-menu__new-group
+          = link_to do
+            %i.fa.fa-cog
+
+    .groups
+      .group
+        %p.group__group-name sample
+        %p.group__latest-message good bye world!
+
+  .chat-main
+    .main-header
+      .current-group
+        %h2.current-group__name sample
+        %ul.member-list Member： seo neko
+        %li.member-list__member
+      = link_to do
+        .main-header__edit-btn Edit
+
+    .messages
+      .message
+        .upper-info
+          %p.upper-info__user seo
+          %p.upper-info__date 2016/09/21 06:16:55
+        %p.message__text Hello world!
+
+      .message
+        .upper-info
+          %p.upper-info__user neko
+          %p.upper-info__date 2016/09/22 06:16:55
+        %p.message__text Good bye world!
+
+    .form
+      .new-message
+        .input-box
+          %input.input-box__text{:placeholder => "type a message"}
+            %label.image-label{:for => "message_image"}
+              %i.fa.fa-image
+              %input.image-label__input{:name => "message[image]", :type => "file", :id =>"message_image"}/
+        %input.new-message__submit-btn{:type => "submit", :value => "Send"}/
+        
+
