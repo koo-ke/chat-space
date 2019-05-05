@@ -21,12 +21,12 @@
       font-size: 20px;
       color: #333333;
       padding-top: 35px;
-      .member-list {
+      &__member-list {
         display: flex;
         padding-top: 15px;
         font-size: 12px;
         color:$SubTextColor;
-        &__member {
+        &--member {
           margin-left: 0.3rem;
         }
       }
