@@ -19,13 +19,11 @@
         display: flex;
         &__edit-user{
           margin-left: 0.3rem;
-          .fa.fa-edit {
-            padding-right: 5px;
-            .fa.fa-cog {
-              padding-right: 20px;
+          padding-right: 5px;
+        &__new-group{
+            padding-right: 20px;
           }
         }
       }
     }
   }
-}
