@@ -16,13 +16,13 @@
             = fa_icon 'cog', class: 'icon'
 
     .groups
-      .group
-        - current_user.groups.each do |group|
+      - current_user.groups.each do |group|
+        .group
           = link_to group_messages_path(group) do
             %p.group__group-name 
               = group.name
             %p.group__latest-message
-              メッセージはまだありません。
+              = group.show_last_message
 
   .chat-main
     .main-header
@@ -36,25 +36,13 @@
         .main-header__edit-btn Edit
 
     .messages
-      .message
-        .upper-info
-          %p.upper-info__user seo
-          %p.upper-info__date 2016/09/21 06:16:55
-        %p.message__text Hello world!
-
-      .message
-        .upper-info
-          %p.upper-info__user neko
-          %p.upper-info__date 2016/09/22 06:16:55
-        %p.message__text Good bye world!
+      = render @messages
 
     .form
-      .new-message
-        .input-box
-          %input.input-box__text{ placeholder: "type a message"}
-            %label.image-label{ for: "message_image"}
-              %i.fa.fa-image
-              %input.image-label__input{ name: "message[image]", type: "file", id: "message_image"}/
-        %input.new-message__submit-btn{ type: "submit", value: "Send"}/
-
-
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
