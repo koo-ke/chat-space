@@ -1,6 +1,6 @@
 $(function() {
   function messagehtml(message){
-    if (message.image) {
+    var image = message.image ? `<img src=${message.image} >` : "";
       var html =
       `<div class='message'>
       <div class='upper-info'>
@@ -14,28 +14,10 @@ $(function() {
       <p class='message__text'>
       ${message.content}
       </p>
-      <img src=${message.image} >
-      </div>`
-      return html;
-      } 
-    else {
-      var html =
-      `<div class='message'>
-      <div class='upper-info'>
-      <p class='upper-info__user'>
-      ${message.user_name}
-      </p>
-      <p class='upper-info__date'>
-      ${message.date}
-      </p>
-      </div>
-      <p class='message__text'>
-      ${message.content}
-      </p>
+      ${image}
       </div>`
       return html;
     };
-  }
 
 $('#new_message').on('submit', function(e){
   e.preventDefault();
@@ -64,9 +46,3 @@ $('#new_message').on('submit', function(e){
     });
   })
 });
-
-
-
-
-
-
