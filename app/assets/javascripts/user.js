@@ -1,6 +1,6 @@
 $(function(){
 
-  function box(user){
+  function add_user(user){
       var html =
       `<div class="chat-group-user clearfix">
       <p class="chat-group-user__name">${ user.name }</p>
@@ -9,14 +9,14 @@ $(function(){
       return html;
     };
 
-    function box2(user_id,user_name){
-      var html2 =
+    function add_user_remove(user_id,user_name){
+      var html =
       `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
       <input name='group[user_ids][]' type='hidden' value='${ user_id }'>
       <p class='chat-group-user__name'>${ user_name }</p>
       <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
       </div>`
-      return html2;
+      return html;
     };
 
   $("#user-search-field").on("keyup", function() {
@@ -34,11 +34,11 @@ $(function(){
       $("#user-search-result").empty();
         if (user.length !== 0 && input.length !== 0 ) {
           user.forEach(function(user){
-          var html = box(user);
+          var html = add_user(user);
             $('#user-search-result').append(html)
           });
       } else {
-          box("一致するユーザーはいません");
+          add_user("一致するユーザーはいません");
         }
       })
 
@@ -50,10 +50,10 @@ $(function(){
 
   $(function(){
     $('#user-search-result').on("click", ".chat-group-user__btn", function () {
-      var user_id = $(this).attr("data-user-id");
-      var user_name = $(this).attr("data-user-name");
-      var html2 = box2(user_id,user_name);
-      $('#chat-group-users').append(html2)
+      var user_id = $(this).data("user-id");
+      var user_name = $(this).data("user-name");
+      var html = add_user_remove(user_id,user_name);
+      $('#chat-group-users').append(html)
       $(this).parent().remove();
     });
 
