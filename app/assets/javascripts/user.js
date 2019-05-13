@@ -48,7 +48,7 @@ $(function(){
     
   });
 
-  $(function(){
+
     $('#user-search-result').on("click", ".chat-group-user__btn", function () {
       var user_id = $(this).data("user-id");
       var user_name = $(this).data("user-name");
@@ -60,6 +60,5 @@ $(function(){
     $(document).on("click", ".user-search-remove", function () {
       $(this).parent().remove();
       
-    })
-  });
+  })
 });
