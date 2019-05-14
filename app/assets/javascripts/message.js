@@ -1,43 +1,5 @@
 $(function() {
 
-  var buildMessageHTML = function(message) {
-    if (message.content && message.image.url) {
-      var html =  `<div class="message" data-id=${message.id}>
-                    <div class="upper-info">
-                      <div class="upper-info__user">${message.user_name}</div>
-                      <div class="upper-info__date">${message.date}</div>
-                    </div>
-                      <div class="lower-message">
-                        <p class="message__text">${message.content}</p>
-                        <img src="${message.image.url}" class="lower-message__image" >
-                      </div>
-                   </div>`
-
-      } else if (message.content) {
-        var html = `<div class="message" data-id=${message.id}>
-                      <div class="upper-info">
-                        <div class="upper-info__user">${message.user_name}</div>
-                        <div class="upper-info__date">${message.date}</div>
-                      </div>
-                    <div class="lower-message">
-                      <p class="message__text">${message.content}</p>
-                    </div>
-                  </div>`
-
-    } else if (message.image.url) {
-      var html = `<div class="message" data-id=${message.id}>
-                    <div class="upper-info">
-                      <div class="upper-info__user">${message.user_name}</div>
-                      <div class="upper-info__date">${message.date}</div>
-                    </div>
-                    <div class="lower-message">
-                      <img src="${message.image.url}"class="lower-message__image" >
-                    </div>
-                  </div>`
-            };
-            return html;
-          };
-
   function messagehtml(message){
     var image = message.image.url ? `<img src=${message.image.url} >` : "";
       var html =
@@ -98,7 +60,7 @@ $('#new_message').on('submit', function(e){
         messages.forEach(function(message){
 
      if( message.group_id === $('.messages').data('groups-id') ) {
-        insertHTML = buildMessageHTML(message);
+        insertHTML = messagehtml(message);
         $('.messages').append(insertHTML)
        }
       })
