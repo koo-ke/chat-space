@@ -72,6 +72,11 @@ $('#new_message').on('submit', function(e){
         alert('error');
       });
     };
-  
+  $(function(){
+    if (location.pathname.match(/messags/)){
     setInterval(reloadMessages, 5000);
+  } else {
+      clearInterval(reloadMessages);
+    }
+  });
 });
