@@ -35,7 +35,7 @@
       = link_to edit_group_path(@group.id) do
         .main-header__edit-btn Edit
 
-    .messages
+    .messages{"data-groups-id": @group.id}
       = render @messages
 
     .form
