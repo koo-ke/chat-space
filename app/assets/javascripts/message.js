@@ -83,10 +83,9 @@ $('#new_message').on('submit', function(e){
       
       var last_message_id = $('.message:last').data('message-id');
        
-      a = location.pathname
-      url = a.replace( "messages", "api/messages" );
+      pash = location.pathname
+      url = pash.replace( "messages", "api/messages" );
 
-      console.log(last_message_id);
       $.ajax({
         url: url,
         type: 'get',
