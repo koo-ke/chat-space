@@ -73,7 +73,7 @@ $('#new_message').on('submit', function(e){
       });
     };
   $(function(){
-    if (location.pathname.match(/messags/)){
+    if (location.pathname.match(/messages/)){
     setInterval(reloadMessages, 5000);
   } else {
       clearInterval(reloadMessages);
