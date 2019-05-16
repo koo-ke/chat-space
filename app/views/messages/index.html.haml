@@ -31,6 +31,7 @@
           = @group.name
         %ul.current-group__member-list
           Member：
+          = @users.pluck(:name).join(",")
           %li.current-group__member-list--member
       = link_to edit_group_path(@group.id) do
         .main-header__edit-btn Edit
