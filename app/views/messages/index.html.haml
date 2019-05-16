@@ -32,6 +32,8 @@
         %ul.current-group__member-list
           Member：
           %li.current-group__member-list--member
+            - @group.group_users.each do |group_user|
+              = group_user.user.name
       = link_to edit_group_path(@group.id) do
         .main-header__edit-btn Edit
 
