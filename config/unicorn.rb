@@ -8,8 +8,6 @@ pid "#{app_path}/shared/tmp/pids/unicorn.pid"
 stderr_path "#{app_path}/shared/log/unicorn.stderr.log"
 stdout_path "#{app_path}/shared/log/unicorn.stdout.log"
 
-ENV['BUNDLE_GEMFILE'] = rails_root + "/Gemfile"
-
 listen 3000
 timeout 60
 
