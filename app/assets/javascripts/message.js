@@ -67,16 +67,15 @@ $('#new_message').on('submit', function(e){
     
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');  
     })
-      
+    $(function(){
+      if (location.pathname.match(/messages/)){
+      setInterval(reloadMessages, 5000);
+    } else {
+        clearInterval(reloadMessages);
+      }
+    })
       .fail(function() {
         alert('error');
       });
     };
-  $(function(){
-    if (location.pathname.match(/messages/)){
-    setInterval(reloadMessages, 5000);
-  } else {
-      clearInterval(reloadMessages);
-    }
-  });
 });
