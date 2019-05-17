@@ -3,7 +3,7 @@ $(function() {
   function messagehtml(message){
     var image = message.image.url ? `<img src=${message.image.url} >` : "";
       var html =
-      `<div class='message' data-id=${message.id}>
+      `<div class='message' data-message-id=${message.id}>
         <div class='upper-info'>
           <p class='upper-info__user'>${message.user_name}</p>
           <p class='upper-info__date'>${message.date}</p>
@@ -27,7 +27,9 @@ $('#new_message').on('submit', function(e){
     processData: false,
     contentType: false
   })
+
   .done(function(data){
+
     var html = messagehtml(data);
     $('.messages').append(html)
     $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');   
@@ -61,21 +63,23 @@ $('#new_message').on('submit', function(e){
 
      if( message.group_id === $('.messages').data('groups-id') ) {
         insertHTML = messagehtml(message);
-        $('.messages').append(insertHTML)
+        $('.messages').append(insertHTML);
+        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast'); 
        }
-      })
-    
-      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');  
+      });
     })
+      .fail(function() {
+        alert('error');
+      });
+    };
     $(function(){
       if (location.pathname.match(/messages/)){
       setInterval(reloadMessages, 5000);
     } else {
         clearInterval(reloadMessages);
       }
-    })
-      .fail(function() {
-        alert('error');
-      });
-    };
-});
+    });
+  });
+
+
+
